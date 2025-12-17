@@ -1,8 +1,5 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
 
-//  Force runtime to Node.js so Clerk can access env during prerender
-export const runtime = "nodejs";
-
 export default clerkMiddleware();
 
 export const config = {
