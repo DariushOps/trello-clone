@@ -423,15 +423,12 @@ export default function Board() {
   const filteredColumns = columns.map((column) => ({
     ...column,
     tasks: column.tasks.filter((task) => {
-      // Filter by priority
       if (
         filters.priority.length > 0 &&
         !filters.priority.includes(task.priority)
       ) {
         return false;
       }
-
-      // Filter by due date
 
       if (filters.dueDate && task.due_date) {
         const taskDate = new Date(task.due_date).toDateString();
@@ -647,7 +644,7 @@ export default function Board() {
 
         <DndContext
           sensors={sensors}
-          // collisionDetection={rectIntersection}
+          collisionDetection={rectIntersection}
           // onDragStart={handleDragStart}
           // onDragOver={handleDragOver}
           // onDragEnd={handleDragEnd}
@@ -683,7 +680,7 @@ export default function Board() {
               <Button
                 variant="outline"
                 className="w-full h-full min-h-[200px] border-dashed border-2 text-gray-500 hover:text-gray-700"
-                onClick={() => setIsCreatingColumn(true)}
+                // onClick={() => setIsCreatingColumn(true)}
               >
                 <Plus />
                 Add another list
