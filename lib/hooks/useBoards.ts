@@ -1,7 +1,7 @@
 "use client";
 
 import { boardDataService, boardService } from "@/lib/services";
-import { Board } from "@/lib/supabase/models";
+import { Board, ColumnWithTasks } from "@/lib/supabase/models";
 import { useSupabase } from "@/lib/supabase/SupabaseProvider";
 import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
@@ -56,4 +56,55 @@ export function useBoards() {
   }
 
   return { boards, loading, error, createBoard };
+}
+
+export function useBoard(boardId: string) {
+  const { supabase } = useSupabase();
+  const [board, setBoard] = useState<Board | null>(null);
+  const [columns, setColumns] = useState<ColumnWithTasks[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (boardId) {
+      loadBoard();
+    }
+  }, [boardId, supabase]);
+
+  async function loadBoard() {
+    if (!boardId) return;
+
+    try {
+      setLoading(true);
+      setError(null);
+      const data = await boardDataService.getBoardWithColumns(
+        supabase!,
+        boardId
+      );
+      setBoard(data.board);
+      setColumns(data.columnsWithTasks);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to load boards.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function updateBoard(boardId: string, updates: Partial<Board>) {
+    try {
+      const updatedBoard = await boardService.updateBoard(
+        supabase!,
+        boardId,
+        updates
+      );
+      setBoard(updatedBoard);
+      return updatedBoard;
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Failed to update the board."
+      );
+    }
+  }
+
+  return { board, loading, columns, error, updateBoard };
 }

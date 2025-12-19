@@ -35,15 +35,6 @@ export default function dashboard() {
     await createBoard({ title: "new title added" });
   }
 
-  // if (loading) {
-  //   return (
-  //     <div className="flex w-full h-screen justify-center items-center gap-4">
-  //       <Loader2 />
-  //       <span>Loading your boards...</span>
-  //     </div>
-  //   );
-  // }
-
   if (error) {
     return (
       <div>
@@ -281,7 +272,7 @@ export default function dashboard() {
             ))}
 
             <Card className="mt-4 border-2 border-dashed border-gray-300 hover:border-blue-400 transition-colors cursor-pointer group">
-              <CardContent className="p-4 sm:p-6 flex flex-col items-center justify-center h-full min-h-[200px]">
+              <CardContent className="p-4 sm:p-6 flex flex-col items-center justify-center h-full min-h-40">
                 <Plus className="h-6 w-6 sm:h-8 sm:w-8 text-gray-400 group-hover:text-emerald-600 mb-2" />
                 <p className="text-sm sm:text-base text-gray-600 group-hover:text-emerald-600 font-medium">
                   Create new board
