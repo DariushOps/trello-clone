@@ -36,11 +36,13 @@ export default function Navbar({
     return (
       <header className="border-b bg-white/80 sticky top-0 z-50 backdrop-blur-sm">
         <div className="container flex items-center justify-between mx-auto px-4 py-3 sm:py-4">
-          <div className="flex items-center space-x-2">
-            <Trello className="h-6 w-6 sm:h-8 sm:w-8 text-emerald-600" />
-            <span className="text-xl sm:text-2xl font-bold text-gray-900 capitalize">
-              Trello Clone
-            </span>
+          <div className="flex items-center space-x-2 cursor-pointer">
+            <Link href="/" className="flex space-x-2">
+              <Trello className="h-6 w-6 sm:h-8 sm:w-8 text-emerald-600" />
+              <span className="text-xl sm:text-2xl font-bold text-gray-900 capitalize">
+                Trello Clone
+              </span>
+            </Link>
           </div>
           <div className="flex items-center space-x-2 sm:space-x-4">
             <UserButton />
@@ -60,12 +62,19 @@ export default function Navbar({
                 href="/dashboard"
                 className="flex items-center space-x-1 sm:space-x-2 text-gray-600 hover:text-gray-900 shrink-0"
               >
-                <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
-                <span className="hidden sm:inline capitalize">
-                  Back to dashboard
-                </span>
-                <span className="sm:hidden">Back</span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="capitalize cursor-pointer border hover:bg-emerald-50 hover:text-gray-900 hover:border-black transition-all duration-500"
+                >
+                  <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="hidden sm:inline capitalize">
+                    Back to dashboard
+                  </span>
+                  <span className="sm:hidden">Back</span>
+                </Button>
               </Link>
+
               <div className="h-4 sm:h-6 w-px bg-gray-300 hidden sm:block" />
               <div className="flex items-center space-x-1 sm:space-x-2 min-w-0">
                 <Trello className="text-emerald-600" />
@@ -92,7 +101,7 @@ export default function Navbar({
                 <Button
                   variant="outline"
                   size="sm"
-                  className={`text-xs sm:text-sm ${
+                  className={`text-xs sm:text-sm capitalize cursor-pointer border hover:bg-emerald-50 hover:text-gray-900 hover:border-black transition-all duration-500 ${
                     filterCount > 0 ? "bg-emerald-100 border-emerald-200" : ""
                   }`}
                   onClick={onFilterClick}
@@ -120,9 +129,9 @@ export default function Navbar({
     <header className="border-b bg-white/80 sticky top-0 z-50 backdrop-blur-sm">
       <div className="container flex items-center justify-between mx-auto px-4 py-3 sm:py-4">
         <div className="flex items-center space-x-2">
-          <Trello className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600" />
+          <Trello className="h-6 w-6 sm:h-8 sm:w-8 text-emerald-600" />
           <span className="text-xl sm:text-2xl font-bold text-gray-900">
-            Trello clone
+            Trello Clone
           </span>
         </div>
         {isSignedIn ? (
@@ -137,18 +146,21 @@ export default function Navbar({
             </Link>
           </div>
         ) : (
-          <div className="flex items-center space-x-2 sm:space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-3">
             <SignInButton>
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-xs sm:text-sm capitalize"
+                className="text-xs sm:text-sm capitalize cursor-pointer border hover:bg-gray-200 hover:text-gray-900 hover:border-black transition-all duration-500"
               >
                 Sign in
               </Button>
             </SignInButton>
             <SignUpButton>
-              <Button size="sm" className="text-xs sm:text-sm capitalize">
+              <Button
+                size="sm"
+                className="text-xs sm:text-sm cursor-pointer border border-black hover:bg-white hover:text-gray-900 capitalize transition-all duration-500"
+              >
                 Sign up
               </Button>
             </SignUpButton>
