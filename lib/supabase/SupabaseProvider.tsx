@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { SupabaseClient, createClient } from "@supabase/supabase-js";
 import { useSession } from "@clerk/nextjs";
+import Loader from "@/components/Loader";
 
 type SupabaseContextType = {
   supabase: SupabaseClient;
@@ -35,7 +36,7 @@ export default function SupabaseProvider({
   if (!supabase || !sessionLoaded) {
     return (
       <div className="flex w-full h-screen justify-center items-center">
-        Loading...
+        <Loader />
       </div>
     );
   }

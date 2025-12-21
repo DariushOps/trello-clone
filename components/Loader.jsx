@@ -1,0 +1,32 @@
+export default function Loader() {
+  return (
+    <div className="flex w-full h-screen items-center justify-center">
+      <button
+        disabled
+        className="bg-linear-to-r from-emerald-700 to-blue-700 text-white font-bold py-4 px-7 rounded-full shadow-lg flex items-center transition duration-300 transform hover:scale-105 active:scale-95"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="animate-spin h-5 w-5 mr-3 text-white"
+        >
+          <circle
+            strokeWidth={4}
+            stroke="currentColor"
+            r={10}
+            cy={12}
+            cx={12}
+            className="opacity-25"
+          />
+          <path
+            d="M4 12a8 8 0 018-8v8H4z"
+            fill="currentColor"
+            className="opacity-75"
+          />
+        </svg>
+        Loading...
+      </button>
+    </div>
+  );
+}
