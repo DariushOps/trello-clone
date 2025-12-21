@@ -803,8 +803,6 @@ export default function BoardPage() {
             </Dialog>
           </div>
 
-          {/* Board Columns */}
-
           <DndContext
             sensors={sensors}
             collisionDetection={rectIntersection}
@@ -842,7 +840,7 @@ export default function BoardPage() {
               <div className="w-full lg:shrink-0 lg:w-80">
                 <Button
                   variant="outline"
-                  className="w-full h-full min-h-[200px] border-dashed border-2 text-gray-500 hover:text-gray-700"
+                  className="w-full h-full min-h-50 border-dashed border-2 text-gray-500 hover:text-gray-700"
                   onClick={() => setIsCreatingColumn(true)}
                 >
                   <Plus />
@@ -912,6 +910,7 @@ export default function BoardPage() {
             </div>
             <div className="space-x-2 flex justify-end">
               <Button
+                className="capitalize cursor-pointer border hover:bg-emerald-50 hover:text-gray-900 hover:border-black transition-all duration-500"
                 type="button"
                 onClick={() => {
                   setIsEditingColumn(false);
@@ -922,7 +921,12 @@ export default function BoardPage() {
               >
                 Cancel
               </Button>
-              <Button type="submit">Edit Column</Button>
+              <Button
+                className="text-xs sm:text-sm cursor-pointer border border-black hover:bg-white hover:text-gray-900 capitalize transition-all duration-500"
+                type="submit"
+              >
+                Edit Column
+              </Button>
             </div>
           </form>
         </DialogContent>
