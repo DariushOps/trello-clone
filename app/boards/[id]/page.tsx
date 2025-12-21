@@ -877,13 +877,19 @@ export default function BoardPage() {
             </div>
             <div className="space-x-2 flex justify-end">
               <Button
+                className="capitalize cursor-pointer border hover:bg-emerald-50 hover:text-gray-900 hover:border-black transition-all duration-500"
                 type="button"
                 onClick={() => setIsCreatingColumn(false)}
                 variant="outline"
               >
                 Cancel
               </Button>
-              <Button type="submit">Create Column</Button>
+              <Button
+                className="text-xs sm:text-sm cursor-pointer border border-black hover:bg-white hover:text-gray-900 capitalize transition-all duration-500"
+                type="submit"
+              >
+                Create Column
+              </Button>
             </div>
           </form>
         </DialogContent>
