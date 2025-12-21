@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Trello Clone
+
+A **production-ready Trello-inspired task management application** built with **Next.js 16** and **React 19**.  
+The app allows users to manage boards, lists, and cards with a clean, accessible, and fully responsive interface.
+
+Authentication, drag & drop interactions, and scalable UI architecture are core focuses of this project.
+
+---
+
+## Features
+
+- Secure authentication with **Clerk**
+- Create and manage boards
+- Add, edit, and delete lists and cards
+- Smooth drag & drop for lists and cards using **dnd-kit**
+- Clean and accessible UI with **shadcn/ui**
+- Fully responsive design (desktop, tablet, mobile)
+- Scalable component-based architecture
+- Optimized rendering with Next.js App Router
+- Ready for deployment on Vercel
+
+---
+
+## Tech Stack
+
+### Core
+
+- **Next.js 16 (App Router)**
+- **React 19**
+- **TypeScript**
+
+### UI & Styling
+
+- **Tailwind CSS v4**
+- **shadcn/ui**
+- **Radix UI primitives**
+- **Lucide Icons**
+- **class-variance-authority**
+- **clsx & tailwind-merge**
+- **tw-animate-css**
+
+### Authentication & Backend
+
+- **Clerk** – Authentication and user management
+- **Supabase (SSR)** – Backend and database integration
+
+### Drag & Drop
+
+- **@dnd-kit/core**
+- **@dnd-kit/sortable**
+- **@dnd-kit/utilities**
+
+### Tooling
+
+- **ESLint**
+- **PostCSS**
+- **Node.js & npm**
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Install dependencies and Run the development server
 
 ```bash
+npm install
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How It Works
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Authentication and session management are handled by Clerk, providing secure access and user-based data separation.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- The UI is built using shadcn/ui components powered by Radix UI, ensuring accessibility and flexibility while maintaining full design control with Tailwind CSS.
 
-## Learn More
+- Boards contain multiple lists, and each list holds multiple cards.
+  Cards and lists can be reordered using dnd-kit, providing smooth and performant drag & drop interactions.
 
-To learn more about Next.js, take a look at the following resources:
+- The application follows a modular, component-driven architecture, making it easy to extend features and maintain clean code.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- The layout is fully responsive and optimized for performance using Next.js App Router and React 19 features.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Purpose
 
-## Deploy on Vercel
+- This project was built to:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Practice building real-world, production-ready applications
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Work with Next.js App Router & React 19
+
+- Implement authentication and backend integration
+
+- Build accessible and scalable UI systems
+
+- Implement complex interactions like drag & drop
